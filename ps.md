@@ -56,7 +56,6 @@ If ([IntPtr]::size -eq 8) {
 }
 
 ```
-Phân tích cơ bản đoạn shell từ GPT :D
 
 Tập lệnh sẽ kiểm tra xem hệ thống có phải là 64 bit hay không bằng cách xác minh kích thước của loại dữ liệu IntPtr. Nếu là 64 bit, tập lệnh sẽ tiến hành giải mã chuỗi được mã hóa base64 để tạo mã shell được mã hóa. Sau đó, tập lệnh lặp lại từng byte trong shellcode và thực hiện thao tác XOR theo bit với số 35 để giải mã nó.
 ```
@@ -67,7 +66,7 @@ Tập lệnh sẽ kiểm tra xem hệ thống có phải là 64 bit hay không b
 	}
 ```
 
-Tiếp theo, tập lệnh sử dụng phương thức GetDelegateForFunctionPointer từ lớp Marshal trong không gian tên System.Runtime.InteropServices để lấy đại biểu cho hàm VirtualAlloc từ thư viện kernel32.dll. Sau đó, tập lệnh gọi đại biểu này với các tham số thích hợp để phân bổ bộ nhớ có thể ghi và thực thi.
+Tiếp theo, tập lệnh sử dụng phương thức GetDelegateForFunctionPointer từ lớp Marshal trong System.Runtime.InteropServices để lấy đại biểu cho hàm VirtualAlloc từ thư viện kernel32.dll. Sau đó, tập lệnh gọi đại biểu này với các tham số thích hợp để phân bổ bộ nhớ có thể ghi và thực thi.
 
 Sau đó, tập lệnh sử dụng phương thức Sao chép từ lớp Marshal để sao chép mã shell đã giải mã vào bộ đệm bộ nhớ được phân bổ. Cuối cùng, tập lệnh nhận một đại biểu cho địa chỉ bắt đầu của bộ đệm bộ nhớ được phân bổ bằng cách sử dụng phương thức GetDelegateForFunctionPulum và gọi nó với một tham số là IntPtr.Zero để thực thi mã shell.
 
@@ -81,8 +80,6 @@ for ($x = 0; $x -lt $decode2.Count; $x++) {
 ```
 hoặc cũng có thể sử dụng cyberchef để deobfuscate:
 <img src ="ps2.png">
-
-Phỏng đoán có thể đoạn shell có nhiệm vụ gửi http request tới IP 195[.]123[.]241[.]82. có thể để tải 1 nội dung gì đó :D
 
 >IOC:
 
