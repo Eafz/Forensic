@@ -88,5 +88,4 @@ hoặc cũng có thể sử dụng cyberchef để deobfuscate:
 195[.]123[.]241[.]82
 
 hxxp://195.123.241.82/Compose/casestudies/2G4E9LUFW.3Elt
-
-``
+```
